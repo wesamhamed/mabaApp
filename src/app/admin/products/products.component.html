@@ -1,0 +1,31 @@
+<hr />
+<h1 style="display: inline-block;">Products</h1>
+<button type="button"  routerLink="/admin/products/add" class="btn btn-success float-right">
+  Add Product
+</button>
+<hr />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">SubTitle</th>
+      <th scope="col">Price</th>
+      <th scope="col" style="width: 350px;">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.title }}</td>
+      <td>{{ product.subTitle }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.description }}</td>
+      <td><img [src]="product.image" width="75" height="75" /></td>
+      <td>
+        <button class="btn btn-outline-primary"  routerLink="/admin/products/edit/{{product.id}}">Edit</button> |
+        <button class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
